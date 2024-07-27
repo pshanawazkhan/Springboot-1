@@ -21,7 +21,7 @@ public class User {
 	private String role;
 
 	
-	
+	//argument constructor
 	public User() {
 	}
 
