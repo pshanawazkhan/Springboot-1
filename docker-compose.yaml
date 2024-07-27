@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # MySQL database service
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test
+    container_name: db-container  
+    ports:
+      - "3307:3306"
+
+  # Spring Boot application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app-1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/test
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
