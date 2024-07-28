@@ -15,12 +15,14 @@ public class User {
 	private int id;
 	@Column
 	private String name;
+	private String name;
 	@Column
 	private String password;
 	@Column
 	private String role;
 
 	
+	//argument constructor
 	public User(int a) {System.out.println("1 arg constructor");}
 	public User() {
 	}
