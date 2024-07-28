@@ -21,10 +21,10 @@ public class User {
 	private String role;
 
 	
-	
+	public User(int a) {System.out.println("1 arg constructor");}
 	public User() {
 	}
-
+//getId
 	public int getId() {
 		return id;
 	}
